@@ -1,8 +1,28 @@
 {
 	"name": "elemix",
-	"private": true,
+	"private": false,
+	"description": "A minimal React-like framework in TypeScript. Fast, tiny, and hackable.",
+	"author": "Marek Elmayan <melmayan.dev@gmail.com>",
+	"keywords": [
+		"elemix",
+		"react",
+		"framework",
+		"typescript",
+		"javascript",
+		"jsx"
+	],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/marek-e/elemix.git"
+	},
+	"bugs": {
+		"url": "https://github.com/marek-e/elemix/issues"
+	},
+	"homepage": "https://github.com/marek-e/elemix#readme",
 	"version": "0.0.0",
 	"type": "module",
+	"files": ["dist"],
 	"main": "dist/elemix.umd.js",
 	"module": "dist/elemix.es.js",
 	"types": "dist/elemix.d.ts",
