@@ -22,13 +22,28 @@
 	"homepage": "https://github.com/marek-e/elemix#readme",
 	"version": "0.0.0",
 	"type": "module",
-	"files": ["dist"],
+	"files": ["dist", "jsx.d.ts"],
+	"exports": {
+		".": {
+			"import": "./dist/elemix.es.js",
+			"require": "./dist/elemix.umd.js",
+			"types": "./dist/elemix.d.ts"
+		},
+		"./jsx-runtime": {
+			"import": "./dist/jsx-runtime.js",
+			"require": "./dist/jsx-runtime.umd.js"
+		},
+		"./jsx-dev-runtime": {
+			"import": "./dist/jsx-dev-runtime.js",
+			"require": "./dist/jsx-dev-runtime.umd.js"
+		}
+	},
 	"main": "dist/elemix.umd.js",
 	"module": "dist/elemix.es.js",
 	"types": "dist/elemix.d.ts",
 	"scripts": {
 		"dev": "tsc --watch",
-		"build": "rollup -c",
+		"build": "rollup -c && node scripts/add-jsx-ref.js",
 		"preview": "serve dist",
 		"format": "biome format --write",
 		"lint": "biome lint --write",
