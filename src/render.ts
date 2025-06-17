@@ -16,6 +16,9 @@ export function render(element: ElemixElement, container: HTMLElement) {
       continue;
     }
 
+    console.log("🚀 ~ render ~ key:", key);
+    console.log("🚀 ~ render ~ value:", value);
+
     if (key === "className") {
       dom.setAttribute("class", value);
     } else if (key.startsWith("on") && typeof value === "function") {
@@ -25,7 +28,13 @@ export function render(element: ElemixElement, container: HTMLElement) {
     }
   }
 
-  for (const child of element.children) {
+  const children = Array.isArray(element.children)
+    ? element.children
+    : element.children != null
+    ? [element.children]
+    : [];
+
+  for (const child of children) {
     if (typeof child === "object" && child !== null) {
       render(child as ElemixElement, dom);
     } else {

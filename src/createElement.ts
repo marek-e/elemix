@@ -5,5 +5,8 @@ export function createElement(
   props: Record<string, unknown> = {},
   ...children: unknown[]
 ): ElemixElement {
-  return { type, props, children };
+  // Merge children from props (for automatic runtime) and variadic children (for classic)
+  const allChildren =
+    props && "children" in props ? (props.children as unknown[]) : children;
+  return { type, props, children: allChildren };
 }
