@@ -1,0 +1,25 @@
+{
+	"name": "elemix",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.esm.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"format": "biome format --write",
+		"lint": "biome lint --write",
+		"check": "biome check --write"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"typescript": "~5.8.3",
+		"vite": "^6.3.5"
+	},
+	"dependencies": {
+		"peer-dependencies": "^0.0.7"
+	}
+}
