@@ -1,7 +1,7 @@
 <p align="center">
   <a 
-  href="https://raw.githubusercontent.com/marek-e/elemix/blob/main/assets/elemix.svg" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="https://raw.githubusercontent.com/marek-e/elemix/blob/main/assets/elemix.svg" alt="elemix logo">
+  href="https://raw.githubusercontent.com/marek-e/elemix/refs/heads/main/assets/elemix.svg" target="_blank" rel="noopener noreferrer">
+    <img width="180" src="https://raw.githubusercontent.com/marek-e/elemix/refs/heads/main/assets/elemix.svg" alt="elemix logo">
   </a>
 </p>
 <br/>
