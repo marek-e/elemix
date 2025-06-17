@@ -3,23 +3,28 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
-	"main": "dist/index.js",
-	"module": "dist/index.esm.js",
-	"types": "dist/index.d.ts",
+	"main": "dist/elemix.umd.js",
+	"module": "dist/elemix.es.js",
+	"types": "dist/elemix.d.ts",
 	"scripts": {
-		"dev": "vite",
-		"build": "tsc && vite build",
-		"preview": "vite preview",
+		"dev": "tsc --watch",
+		"build": "rollup -c",
+		"preview": "serve dist",
 		"format": "biome format --write",
 		"lint": "biome lint --write",
 		"check": "biome check --write"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
-		"typescript": "~5.8.3",
-		"vite": "^6.3.5"
+		"@rollup/plugin-commonjs": "^28.0.6",
+		"@rollup/plugin-node-resolve": "^16.0.1",
+		"@rollup/plugin-typescript": "^12.1.3",
+		"rollup": "^4.43.0",
+		"rollup-plugin-dts": "^6.2.1",
+		"typescript": "~5.8.3"
 	},
 	"dependencies": {
-		"peer-dependencies": "^0.0.7"
+		"peer-dependencies": "^0.0.7",
+		"tslib": "^2.8.1"
 	}
 }
