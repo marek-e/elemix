@@ -3,6 +3,20 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
+import { exec } from "node:child_process";
+
+function runCustomScript() {
+  return {
+    name: "run-custom-script-after-build",
+    writeBundle() {
+      exec("node scripts/add-jsx-ref.js", (err, stdout, stderr) => {
+        if (stdout) process.stdout.write(stdout);
+        if (stderr) process.stderr.write(stderr);
+        if (err) console.error("Custom script failed:", err);
+      });
+    },
+  };
+}
 
 export default [
   {
@@ -20,10 +34,16 @@ export default [
         sourcemap: true,
       },
     ],
+    watch: {
+      include: "src/**",
+      exclude: "node_modules/**",
+      clearScreen: true,
+    },
     plugins: [
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
+      runCustomScript(),
     ],
     external: [],
   },
@@ -47,10 +67,16 @@ export default [
         sourcemap: true,
       },
     ],
+    watch: {
+      include: "src/**",
+      exclude: "node_modules/**",
+      clearScreen: true,
+    },
     plugins: [
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
+      runCustomScript(),
     ],
     external: [],
   },
@@ -69,10 +95,16 @@ export default [
         sourcemap: true,
       },
     ],
+    watch: {
+      include: "src/**",
+      exclude: "node_modules/**",
+      clearScreen: true,
+    },
     plugins: [
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
+      runCustomScript(),
     ],
     external: [],
   },

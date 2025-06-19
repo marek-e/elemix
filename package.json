@@ -42,7 +42,7 @@
 	"module": "dist/elemix.es.js",
 	"types": "dist/elemix.d.ts",
 	"scripts": {
-		"dev": "tsc --watch",
+		"dev": "rollup -c -w",
 		"build": "rollup -c && node scripts/add-jsx-ref.js",
 		"preview": "serve dist",
 		"format": "biome format --write",
