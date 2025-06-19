@@ -12,20 +12,15 @@ export function render(element: ElemixElement, container: HTMLElement) {
   const dom = document.createElement(element.type as string);
 
   for (const [key, value] of Object.entries(element.props || {})) {
-    if (typeof value !== "string") {
-      continue;
-    }
-
-    console.log("🚀 ~ render ~ key:", key);
-    console.log("🚀 ~ render ~ value:", value);
-
-    if (key === "className") {
+    if (key === "className" && typeof value === "string") {
       dom.setAttribute("class", value);
     } else if (key.startsWith("on") && typeof value === "function") {
-      dom.addEventListener(key.toLowerCase().slice(2), value);
-    } else {
+      // Attach event handler (e.g., onClick -> click)
+      dom.addEventListener(key.slice(2).toLowerCase(), value as EventListener);
+    } else if (typeof value === "string") {
       dom.setAttribute(key, value);
     }
+    // Ignore all other prop types
   }
 
   const children = Array.isArray(element.children)
